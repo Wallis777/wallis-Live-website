@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0B0F19">
+  <meta name="color-scheme" content="dark">
+  <title>鄭琬文 Wallis Cheng ｜ 品牌策略 × 電商策略 ｜ Brand & E-Commerce Strategy</title>
+  <meta name="description" content="鄭琬文 Wallis Cheng：18年跨域商業策略整合者。專注於品牌策略、電商營運、數位轉型與 AI 智慧賦能，將策略轉化為實質商業成長。">
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans TC"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              ink: '#0B0F19',
+              slate: '#1E293B',
+              cobalt: '#3B82F6',
+              cyan: '#06B6D4',
+              coral: '#F43F5E',
+              paper: '#F8FAFC',
+            }
+          },
+          boxShadow: {
+            'glass': '0 20px 40px -15px rgba(11, 15, 25, 0.65), 0 0 0 1px rgba(248, 250, 252, 0.03)',
+            'glass-hover': '0 25px 50px -12px rgba(59, 130, 246, 0.2), 0 0 0 1px rgba(6, 182, 212, 0.3)',
+            'glow': '0 0 50px -10px rgba(59, 130, 246, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Shared palette from the supplied brand color guide. */
+    :root {
+      color-scheme: dark;
+      --brand-ink: #0B0F19;
+      --brand-slate: #1E293B;
+      --brand-cobalt: #3B82F6;
+      --brand-cyan: #06B6D4;
+      --brand-coral: #F43F5E;
+      --brand-paper: #F8FAFC;
+    }
+
+    html {
+      background-color: var(--brand-ink);
+      scroll-padding-top: 7rem;
+    }
+
+    body {
+      color: var(--brand-paper);
+    }
+
+    ::selection {
+      background: var(--brand-coral);
+      color: var(--brand-ink);
+    }
+
+    :where(a, button):focus-visible {
+      outline: 2px solid var(--brand-cyan);
+      outline-offset: 4px;
+    }
+
+    .bg-brand-mesh {
+      background-color: var(--brand-ink);
+      background-image:
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.07) 0px, transparent 50%);
+    }
+
+    /* Glassmorphism styling */
+    .glass-panel {
+      background: rgba(30, 41, 59, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(248, 250, 252, 0.12);
+    }
+    
+    .glass-panel-dark {
+      background: rgba(11, 15, 25, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    /* Subtle tech grid background pattern */
+    .tech-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+    }
+
+    /* Text gradient effect */
+    .text-gradient {
+      background: linear-gradient(135deg, var(--brand-paper) 5%, var(--brand-cobalt) 55%, var(--brand-cyan) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-subtle {
+      background: linear-gradient(135deg, var(--brand-paper) 0%, var(--brand-cyan) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Coral is reserved for the primary booking and enquiry actions. */
+    .button-primary {
+      background-color: var(--brand-coral);
+      color: var(--brand-ink);
+      border: 1px solid transparent;
+      box-shadow: 0 8px 28px -10px rgba(244, 63, 94, 0.45);
+    }
+
+    .button-primary:hover {
+      background-image: linear-gradient(rgba(248, 250, 252, 0.1), rgba(248, 250, 252, 0.1));
+      color: var(--brand-ink);
+      box-shadow: 0 12px 32px -10px rgba(244, 63, 94, 0.6);
+    }
+
+    /* Floating subtle aura */
+    @keyframes pulse-slow {
+      0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.45; }
+      50% { transform: scale(1.08) translate(15px, -10px); opacity: 0.65; }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 12s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html.scroll-smooth { scroll-behavior: auto; }
+      body .animate-pulse-slow, body .animate-pulse, body .animate-ping, body .animate-bounce {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body class="bg-brand-mesh text-brand-paper/90 antialiased selection:bg-brand-coral selection:text-brand-ink">
+
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-3">
+      <nav class="glass-panel rounded-2xl px-5 py-3 shadow-glass flex items-center justify-between transition-all">
+        <!-- Logo / Identity -->
+        <a href="#" class="group flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cobalt via-brand-cobalt to-brand-cyan flex items-center justify-center text-brand-ink font-bold text-lg shadow-md shadow-brand-cobalt/20 group-hover:scale-105 transition-transform">
+            W
+          </div>
+          <div class="flex flex-col">
+            <span class="text-base font-bold text-brand-paper tracking-tight leading-none group-hover:text-brand-cyan transition-colors">Wallis Cheng</span>
+            <span class="text-[11px] font-medium text-brand-paper/70 tracking-wider uppercase mt-1">品牌與電商策略顧問</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-paper/80">
+          <a href="#positioning" class="hover:text-brand-cyan transition-colors">核心定位</a>
+          <a href="#services" class="hover:text-brand-cyan transition-colors">策略服務</a>
+          <a href="#framework" class="hover:text-brand-cyan transition-colors">商業方法論</a>
+          <a href="#experience" class="hover:text-brand-cyan transition-colors">18年跨域實績</a>
+          <a href="#consultation" class="hover:text-brand-cyan transition-colors">企業諮詢</a>
+        </div>
+
+        <!-- Action CTA -->
+        <div class="flex items-center space-x-3">
+          <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" rel="noopener noreferrer" 
+             class="relative inline-flex items-center justify-center px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5 group button-primary">
+            <span>預約策略諮詢</span>
+            <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+          </a>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobileMenuBtn" aria-label="切換選單" class="lg:hidden p-2 rounded-xl text-brand-paper/90 hover:bg-brand-slate transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink">
+            <i class="fa-solid fa-bars-staggered text-lg"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden lg:hidden mt-2 glass-panel rounded-2xl p-5 shadow-glass space-y-4">
+        <a href="#positioning" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">核心定位</a>
+        <a href="#services" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">策略服務</a>
+        <a href="#framework" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">商業方法論</a>
+        <a href="#experience" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">18年跨域實績</a>
+        <a href="#consultation" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">企業諮詢方案</a>
+        <div class="pt-2 border-t border-brand-paper/10">
+          <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" class="block w-full text-center py-2.5 rounded-xl font-medium text-sm button-primary">
+            直接在 Google 行事曆預約
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden tech-grid">
+      <!-- Glow ambient background shapes -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[450px] bg-gradient-to-tr from-brand-cobalt/20 via-brand-cobalt/20 to-brand-cyan/20 blur-3xl -z-10 rounded-full animate-pulse-slow pointer-events-none"></div>
+      <div class="absolute bottom-10 right-5 w-72 h-72 bg-brand-cyan/20 blur-3xl -z-10 rounded-full pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Hero Left Column: Brand Copy & Tagline -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-cobalt/25 bg-brand-slate/70 shadow-sm text-xs font-semibold text-brand-paper/90 backdrop-blur-md">
+              <span class="w-2 h-2 rounded-full bg-brand-cobalt animate-ping"></span>
+              <span>18 年跨域商業整合｜品牌策略 × 電商營運實務</span>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-paper leading-[1.15]">
+              Strategy Meets Intelligence.
+              <span class="block mt-2 text-2xl sm:text-3xl lg:text-4xl font-bold text-gradient">
+                以策略定義品牌，以智慧驅動成長
+              </span>
+            </h1>
+
+            <!-- Executive Sub-paragraph -->
+            <p class="text-base sm:text-lg text-brand-paper/80 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+              我是 <span class="font-bold text-brand-paper">鄭琬文 Wallis Cheng</span>。專注於串聯品牌定位、產品定價、線上線下通路佈局與數位營運流程。不僅提出前瞻性策略，更深入商業底層，透過實務經驗與智慧數據應用，將策略無縫轉化為可衡量的企業競爭優勢。
+            </p>
+
+            <!-- Four Pillars Badges -->
+            <div class="pt-2 flex flex-wrap gap-2.5 justify-center lg:justify-start">
+              <span class="px-3 py-1.5 rounded-lg bg-brand-slate/50 border border-brand-paper/10 text-xs font-semibold text-brand-paper/90 shadow-sm flex items-center gap-1.5">
+                <i class="fa-solid fa-chess-knight text-brand-cyan"></i> Strategy 策略思維
+              </span>
+              <span class="px-3 py-1.5 rounded-lg bg-brand-slate/50 border border-brand-paper/10 text-xs font-semibold text-brand-paper/90 shadow-sm flex items-center gap-1.5">
+                <i class="fa-solid fa-bag-shopping text-brand-cyan"></i> Commerce 電商經營
+              </span>
+              <span class="px-3 py-1.5 rounded-lg bg-brand-slate/50 border border-brand-paper/10 text-xs font-semibold text-brand-paper/90 shadow-sm flex items-center gap-1.5">
+                <i class="fa-solid fa-arrows-split-up-and-left text-brand-cyan"></i> Innovation 數位轉型
+              </span>
+              <span class="px-3 py-1.5 rounded-lg bg-brand-slate/50 border border-brand-paper/10 text-xs font-semibold text-brand-paper/90 shadow-sm flex items-center gap-1.5">
+                <i class="fa-solid fa-brain text-brand-cyan"></i> Intelligence 智慧賦能
+              </span>
+            </div>
+
+            <!-- CTAs and Trust statement -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" rel="noopener noreferrer"
+                 class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-sm hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 group button-primary">
+                <span>預約 30 分鐘商業策略諮詢</span>
+                <i class="fa-solid fa-calendar-check transition-transform group-hover:scale-110"></i>
+              </a>
+              <a href="#services" 
+                 class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-brand-slate/80 hover:bg-brand-slate/50 text-brand-paper/90 font-semibold text-sm border border-brand-paper/10 shadow-sm hover:border-brand-paper/20 transition-all flex items-center justify-center gap-2">
+                <span>探索顧問服務範疇</span>
+                <i class="fa-solid fa-arrow-down text-brand-paper/70"></i>
+              </a>
+            </div>
+
+            <!-- Trust highlights -->
+            <div class="pt-6 border-t border-brand-paper/10 grid grid-cols-3 gap-4 text-center lg:text-left">
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-brand-paper">18<span class="text-brand-cyan font-bold">+</span></div>
+                <div class="text-xs text-brand-paper/70 font-medium">年跨產業實務經驗</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-brand-paper">360°</div>
+                <div class="text-xs text-brand-paper/70 font-medium">全通路與營運整合</div>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-extrabold text-brand-paper">Action</div>
+                <div class="text-xs text-brand-paper/70 font-medium">落地執行非純理論</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Right Column: Interactive Strategic Value Visualizer -->
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <!-- Ambient border decoration -->
+              <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-cobalt/20 via-brand-cobalt/20 to-brand-cyan/20 blur-xl opacity-75"></div>
+
+              <!-- Main Card Container -->
+              <div class="relative glass-panel rounded-3xl p-6 sm:p-8 shadow-glass border border-brand-paper/10">
+                <div class="flex items-center justify-between pb-5 border-b border-brand-paper/10">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-brand-cyan inline-block animate-pulse"></span>
+                    <span class="text-xs font-semibold text-brand-paper/90 uppercase tracking-wider">Strategic Framework Matrix</span>
+                  </div>
+                  <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-brand-slate text-brand-paper/70">v4.2 Executive</span>
+                </div>
+
+                <!-- Strategy Blueprint Node Graph -->
+                <div class="mt-6 space-y-3.5">
+                  
+                  <!-- Layer 1 -->
+                  <div class="p-4 rounded-2xl bg-brand-slate/90 border border-brand-cobalt/25 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="flex items-start justify-between">
+                      <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-brand-cobalt/10 text-brand-cyan flex items-center justify-center font-bold text-sm group-hover:bg-brand-cobalt group-hover:text-brand-ink transition-colors">
+                          01
+                        </div>
+                        <div>
+                          <div class="text-sm font-bold text-brand-paper">品牌心智與定位策略</div>
+                          <div class="text-xs text-brand-paper/70">Brand Positioning & Market Insight</div>
+                        </div>
+                      </div>
+                      <span class="text-xs font-medium text-brand-cyan bg-brand-cobalt/10 px-2 py-0.5 rounded-full">高維定錨</span>
+                    </div>
+                  </div>
+
+                  <!-- Connector Icon -->
+                  <div class="flex justify-center -my-1 text-brand-cyan">
+                    <i class="fa-solid fa-arrow-down-long text-xs animate-bounce"></i>
+                  </div>
+
+                  <!-- Layer 2 -->
+                  <div class="p-4 rounded-2xl bg-brand-slate/90 border border-brand-cobalt/25 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="flex items-start justify-between">
+                      <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-brand-cobalt/10 text-brand-cyan flex items-center justify-center font-bold text-sm group-hover:bg-brand-cobalt group-hover:text-brand-ink transition-colors">
+                          02
+                        </div>
+                        <div>
+                          <div class="text-sm font-bold text-brand-paper">電商與全通路營運閉環</div>
+                          <div class="text-xs text-brand-paper/70">E-Commerce & Omnichannel Funnel</div>
+                        </div>
+                      </div>
+                      <span class="text-xs font-medium text-brand-cyan bg-brand-cobalt/10 px-2 py-0.5 rounded-full">商業變現</span>
+                    </div>
+                  </div>
+
+                  <!-- Connector Icon -->
+                  <div class="flex justify-center -my-1 text-brand-cyan">
+                    <i class="fa-solid fa-arrow-down-long text-xs"></i>
+                  </div>
+
+                  <!-- Layer 3 -->
+                  <div class="p-4 rounded-2xl bg-brand-slate/90 border border-brand-cobalt/25 shadow-sm hover:shadow-md transition-shadow group">
+                    <div class="flex items-start justify-between">
+                      <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-brand-cobalt/10 text-brand-cyan flex items-center justify-center font-bold text-sm group-hover:bg-brand-cobalt group-hover:text-brand-ink transition-colors">
+                          03
+                        </div>
+                        <div>
+                          <div class="text-sm font-bold text-brand-paper">營運流程與數位轉型</div>
+                          <div class="text-xs text-brand-paper/70">Operation & CRM Architecture</div>
+                        </div>
+                      </div>
+                      <span class="text-xs font-medium text-brand-cyan bg-brand-cobalt/10 px-2 py-0.5 rounded-full">效率飛輪</span>
+                    </div>
+                  </div>
+
+                  <!-- Empowered by AI Banner -->
+                  <div class="p-3.5 rounded-2xl bg-gradient-to-r from-brand-cobalt/20 to-brand-ink text-brand-paper flex items-center justify-between shadow-md">
+                    <div class="flex items-center gap-2.5">
+                      <div class="w-7 h-7 rounded-lg bg-brand-cobalt/30 flex items-center justify-center text-brand-cyan">
+                        <i class="fa-solid fa-sparkles text-xs"></i>
+                      </div>
+                      <div>
+                        <div class="text-xs font-bold text-brand-paper tracking-wide">AI 智慧工具賦能 (Empowerment)</div>
+                        <div class="text-[10px] text-brand-paper/75">研究洞察、內容擴展與數據輔助決策</div>
+                      </div>
+                    </div>
+                    <span class="text-[11px] font-semibold text-brand-cyan bg-brand-paper/5 px-2 py-0.5 rounded">加值催化劑</span>
+                  </div>
+
+                </div>
+
+                <!-- Footer note within card -->
+                <div class="mt-5 pt-4 border-t border-brand-paper/10 flex items-center justify-between text-[11px] text-brand-paper/70">
+                  <span><i class="fa-solid fa-circle-check text-brand-cyan mr-1"></i> 不空談理論</span>
+                  <span><i class="fa-solid fa-circle-check text-brand-cyan mr-1"></i> 完整商業骨架</span>
+                  <span><i class="fa-solid fa-circle-check text-brand-cobalt mr-1"></i> 聚焦獲利轉化</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="positioning" class="py-20 bg-brand-ink border-y border-brand-paper/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div class="text-xs font-bold tracking-widest text-brand-cyan uppercase">Core Brand Positioning</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-paper">
+            跨域商業策略整合者
+            <span class="block text-xl sm:text-2xl font-semibold text-brand-paper/70 mt-2">打通「品牌定位」與「電商獲利」的雙軌核心</span>
+          </h2>
+          <p class="text-brand-paper/80 text-base leading-relaxed">
+            企業在不同成長階段，往往面臨策略與營運脫節的困境——做行銷的缺乏電商財務思維，做電商的容易淪於削價競爭。我的價值在於作為橋樑，將頂層品牌視野與基層電商營運深度咬合。
+          </p>
+        </div>
+
+        <!-- 3 Role Pillars Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pillar 1 -->
+          <div class="p-8 rounded-3xl bg-brand-slate/50 border border-brand-paper/10 hover:bg-brand-slate/50 hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-2xl bg-brand-cobalt/20 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-compass"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-paper mb-3">跨域商業策略整合者</h3>
+            <p class="text-brand-paper/80 text-sm leading-relaxed mb-4">
+              跨越品牌、行銷、通路、營運與IT技術的溝通鴻溝。精準辨識市場機會點，制定兼具市場聲量與商業變現力的整合藍圖。
+            </p>
+            <ul class="text-xs text-brand-paper/70 space-y-2 pt-4 border-t border-brand-paper/10">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cobalt"></i> 市場格局與競爭差異化診斷</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cobalt"></i> 跨部門團隊目標與資源對齊</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="p-8 rounded-3xl bg-brand-slate/50 border border-brand-paper/10 hover:bg-brand-slate/50 hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-2xl bg-brand-cobalt/20 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-paper mb-3">品牌與電商營運專業人士</h3>
+            <p class="text-brand-paper/80 text-sm leading-relaxed mb-4">
+              深諳實體零售與電商通路機制。從商品毛利定價、活動節奏排程、流量漏斗到會員回購體系，皆有扎實的實操歷練與驗證。
+            </p>
+            <ul class="text-xs text-brand-paper/70 space-y-2 pt-4 border-t border-brand-paper/10">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> 線上線下（OMO）差異化組合</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> 電商毛利架構與轉換率優化</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="p-8 rounded-3xl bg-brand-slate/50 border border-brand-paper/10 hover:bg-brand-slate/50 hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 group">
+            <div class="w-14 h-14 rounded-2xl bg-brand-cobalt/20 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-paper mb-3">數位創新與智慧實踐者</h3>
+            <p class="text-brand-paper/80 text-sm leading-relaxed mb-4">
+              以理性商業視角評估新技術。不盲目追求流行科技，而是將 AI 與數據工具無縫融入傳統工作流，實質放大團隊效能與決策品質。
+            </p>
+            <ul class="text-xs text-brand-paper/70 space-y-2 pt-4 border-t border-brand-paper/10">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> AI 賦能行銷企劃與洞察生成</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-cyan"></i> 數位營運流程標準化與降本增效</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="services" class="py-24 relative overflow-hidden">
+      <!-- Glow decoration -->
+      <div class="absolute top-1/2 right-0 w-96 h-96 bg-brand-cobalt/20 blur-3xl -z-10 rounded-full"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+          <div class="space-y-3 max-w-2xl">
+            <div class="text-xs font-bold tracking-widest text-brand-cyan uppercase">Core Services Matrix</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-paper tracking-tight">
+              四維核心服務矩陣
+            </h2>
+            <p class="text-brand-paper/80 text-base">
+              提供全方位商業諮詢與陪跑導入，協助品牌跨越定位模糊、電商營收瓶頸與數位轉型陣痛。
+            </p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-brand-paper/70 font-medium">需要客製化專案？</span>
+            <a href="#consultation" class="text-xs font-bold text-brand-cyan hover:text-brand-paper underline underline-offset-4">立即洽詢客製方案 &rarr;</a>
+          </div>
+        </div>
+
+        <!-- 4 Services Detailed Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Service 01: Brand & Marketing Strategy -->
+          <div class="glass-panel p-8 sm:p-10 rounded-3xl shadow-glass border border-brand-paper/10 hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-mono font-bold tracking-wider text-brand-cyan bg-brand-cobalt/10 px-3 py-1 rounded-full border border-brand-cobalt/25">
+                  SERVICE 01
+                </span>
+                <div class="w-12 h-12 rounded-2xl bg-brand-cobalt/10 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-gem"></i>
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-bold text-brand-paper mb-2">品牌與行銷策略</h3>
+              <p class="text-xs font-semibold text-brand-paper/70 tracking-wide uppercase mb-4">Brand & Marketing Strategy</p>
+              
+              <p class="text-brand-paper/80 text-sm leading-relaxed mb-6">
+                從市場研究與競品缺口分析切入，釐清核心價值觀與心智定位，打造具備情感共鳴與商業競爭力的品牌架構，並規劃全年度整合行銷節奏。
+              </p>
+
+              <div class="space-y-2.5 pt-4 border-t border-brand-paper/10">
+                <div class="text-xs font-bold text-brand-paper mb-2">服務重點項目：</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-brand-paper/80">
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cobalt"></i> 品牌核心價值與定位重塑</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cobalt"></i> 市場競品調研與客群輪廓</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cobalt"></i> 通路佈局與品牌資產管理</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cobalt"></i> 整合行銷傳播（IMC）規劃</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-4">
+              <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" class="inline-flex items-center text-xs font-bold text-brand-cyan hover:text-brand-paper group-hover:translate-x-1 transition-transform">
+                預約此領域策略探討 <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 02: E-Commerce & Omnichannel Strategy -->
+          <div class="glass-panel p-8 sm:p-10 rounded-3xl shadow-glass border border-brand-paper/10 hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-mono font-bold tracking-wider text-brand-cyan bg-brand-cobalt/10 px-3 py-1 rounded-full border border-brand-cobalt/25">
+                  SERVICE 02
+                </span>
+                <div class="w-12 h-12 rounded-2xl bg-brand-cobalt/10 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-store"></i>
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-bold text-brand-paper mb-2">電商與全通路策略</h3>
+              <p class="text-xs font-semibold text-brand-paper/70 tracking-wide uppercase mb-4">E-Commerce & Omnichannel Strategy</p>
+              
+              <p class="text-brand-paper/80 text-sm leading-relaxed mb-6">
+                打破實體與電商衝突。規劃精密的商品線組合、定價防線、線上線下差異化專屬規格，並優化平台轉換漏斗與顧客購物體驗，實現高毛利可持續成長。
+              </p>
+
+              <div class="space-y-2.5 pt-4 border-t border-brand-paper/10">
+                <div class="text-xs font-bold text-brand-paper mb-2">服務重點項目：</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-brand-paper/80">
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 電商官網與通路平台經營策略</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 線上線下（OMO）商品定價策略</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 促銷機制設計與毛利風險防禦</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 結帳流程與顧客體驗旅程優化</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-4">
+              <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" class="inline-flex items-center text-xs font-bold text-brand-cyan hover:text-brand-paper group-hover:translate-x-1 transition-transform">
+                預約此領域策略探討 <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 03: Digital Transformation & Operations -->
+          <div class="glass-panel p-8 sm:p-10 rounded-3xl shadow-glass border border-brand-paper/10 hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-mono font-bold tracking-wider text-brand-cyan bg-brand-cobalt/10 px-3 py-1 rounded-full border border-brand-cobalt/25">
+                  SERVICE 03
+                </span>
+                <div class="w-12 h-12 rounded-2xl bg-brand-cobalt/10 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-network-wired"></i>
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-bold text-brand-paper mb-2">數位轉型與營運整合</h3>
+              <p class="text-xs font-semibold text-brand-paper/70 tracking-wide uppercase mb-4">Digital Transformation & Operations</p>
+              
+              <p class="text-brand-paper/80 text-sm leading-relaxed mb-6">
+                從零到一建立數位經營基礎架構。串接會員制度、顧客數據（CDP/CRM）、跨部門營運工作流，讓策略不再卡在團隊協作與系統割裂的泥淖。
+              </p>
+
+              <div class="space-y-2.5 pt-4 border-t border-brand-paper/10">
+                <div class="text-xs font-bold text-brand-paper mb-2">服務重點項目：</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-brand-paper/80">
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 會員制度與會員終身價值（LTV）</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 顧客資料整合與精準溝通策略</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 跨部門協作 SOP 與數位專案管理</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 數位營運指標（KPI/OKR）設定</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-4">
+              <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" class="inline-flex items-center text-xs font-bold text-brand-cyan hover:text-brand-paper group-hover:translate-x-1 transition-transform">
+                預約此領域策略探討 <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service 04: AI Business Empowerment -->
+          <div class="glass-panel p-8 sm:p-10 rounded-3xl shadow-glass border border-brand-paper/10 hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 relative group flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-mono font-bold tracking-wider text-brand-cyan bg-brand-cyan/10 px-3 py-1 rounded-full border border-brand-cyan/25">
+                    SERVICE 04
+                  </span>
+                  <span class="text-[10px] bg-brand-ink text-brand-paper px-2 py-0.5 rounded font-semibold">加值賦能模組</span>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+              </div>
+
+              <h3 class="text-2xl font-bold text-brand-paper mb-2">AI 商業應用與智慧賦能</h3>
+              <p class="text-xs font-semibold text-brand-paper/70 tracking-wide uppercase mb-4">AI Business Empowerment</p>
+              
+              <p class="text-brand-paper/80 text-sm leading-relaxed mb-6">
+                將 Generative AI 與現代分析工具融入商業營運真實場景。協助團隊利用 AI 加速市場調研、內容企劃、數據預測與日常工作流自動化，實質釋放高價值人力。
+              </p>
+
+              <div class="space-y-2.5 pt-4 border-t border-brand-paper/10">
+                <div class="text-xs font-bold text-brand-paper mb-2">服務重點項目：</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-brand-paper/80">
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> AI 輔助市場趨勢分析與商機洞察</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 品牌內容企劃與行銷素材智能生成</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 企業內部 AI 工作流導入與賦能培訓</div>
+                  <div class="flex items-center gap-2"><i class="fa-regular fa-circle-check text-brand-cyan"></i> 數據驅動的商業決策與自動化實驗</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-4">
+              <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" class="inline-flex items-center text-xs font-bold text-brand-cyan hover:text-brand-paper group-hover:translate-x-1 transition-transform">
+                預約此領域策略探討 <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="framework" class="py-20 bg-brand-slate/50 text-brand-paper relative overflow-hidden">
+      <!-- Background subtle network patterns -->
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3B82F6_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <span class="px-3 py-1 rounded-full bg-brand-cobalt/20 text-brand-cyan text-xs font-bold tracking-widest uppercase border border-brand-cobalt/25">
+            Methodology & Framework
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            從「洞察」到「成長」的閉環顧問框架
+          </h2>
+          <p class="text-brand-paper/70 text-base leading-relaxed">
+            優秀的顧問絕不套用公版範本。我透過四個具體階段，協助企業抽絲剝繭，建立具防禦性且能自我造血的商業運作機制。
+          </p>
+        </div>
+
+        <!-- 4 Steps Process Timeline -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+          
+          <!-- Step 1 -->
+          <div class="glass-panel-dark p-6 rounded-2xl relative border border-brand-paper/10 flex flex-col justify-between">
+            <div>
+              <div class="text-3xl font-extrabold text-brand-cobalt font-mono mb-4">Phase 01</div>
+              <h3 class="text-lg font-bold text-brand-paper mb-2">深度診斷與市場洞察</h3>
+              <p class="text-xs text-brand-paper/70 leading-relaxed">
+                盤點企業核心優勢、財務體質、目前通路瓶頸與用戶流失點。運用數據與 AI 工具快速掃描產業競態與藍海空間。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-paper/10 text-[11px] text-brand-cyan font-medium">
+              交付：商業體質診斷報告與策略定錨書
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-panel-dark p-6 rounded-2xl relative border border-brand-paper/10 flex flex-col justify-between">
+            <div>
+              <div class="text-3xl font-extrabold text-brand-cyan font-mono mb-4">Phase 02</div>
+              <h3 class="text-lg font-bold text-brand-paper mb-2">商業架構與全通路佈局</h3>
+              <p class="text-xs text-brand-paper/70 leading-relaxed">
+                重新梳理產品定位與毛利模型，規劃實體門市與電商通路的區隔定位、價格維護機制與顧客體驗路徑。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-paper/10 text-[11px] text-brand-cyan font-medium">
+              交付：全通路營運與定價策略藍圖
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-panel-dark p-6 rounded-2xl relative border border-brand-paper/10 flex flex-col justify-between">
+            <div>
+              <div class="text-3xl font-extrabold text-brand-cyan font-mono mb-4">Phase 03</div>
+              <h3 class="text-lg font-bold text-brand-paper mb-2">流程重塑與智慧賦能</h3>
+              <p class="text-xs text-brand-paper/70 leading-relaxed">
+                落實會員忠誠體系與數位轉型架構，導入自動化行銷與 AI 賦能工具，建立清晰的跨部門協作 SOP 與數據看板。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-paper/10 text-[11px] text-brand-cyan font-medium">
+              交付：數位轉型 SOP 與團隊協作規範
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="glass-panel-dark p-6 rounded-2xl relative border border-brand-paper/10 flex flex-col justify-between">
+            <div>
+              <div class="text-3xl font-extrabold text-brand-cyan font-mono mb-4">Phase 04</div>
+              <h3 class="text-lg font-bold text-brand-paper mb-2">敏捷驗證與商業飛輪</h3>
+              <p class="text-xs text-brand-paper/70 leading-relaxed">
+                進行市場小步快跑驗證，根據真實轉換數據持續校準推廣策略，打造穩定帶來營收與品牌聲譽的自體增長系統。
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-paper/10 text-[11px] text-brand-cyan font-medium">
+              交付：長期成長指標儀表板與迭代機制
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quote highlight banner -->
+        <div class="mt-12 p-6 rounded-2xl bg-gradient-to-r from-brand-cobalt/20 to-brand-cobalt/20 border border-brand-cobalt/25 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-paper/5 flex items-center justify-center text-brand-cyan text-xl shrink-0">
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <p class="text-sm text-brand-paper/90 font-medium italic">
+              「策略如果不進駐到電商的訂單結帳頁、實體門市的收銀台與後台的庫存系統，那就只是牆上的標語。」
+            </p>
+          </div>
+          <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" class="shrink-0 px-5 py-2.5 rounded-xl font-bold text-xs transition-colors button-primary">
+            探討導入可行性
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-brand-ink">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Left Column: Biography & Background Summary -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="text-xs font-bold tracking-widest text-brand-cyan uppercase">Track Record & Authority</div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-paper leading-tight">
+              18 年磨礪
+              <span class="block text-2xl font-bold text-brand-paper/70 mt-1">從第一線實務走向企業策略大局</span>
+            </h2>
+
+            <div class="prose prose-invert text-sm text-brand-paper/80 space-y-4 leading-relaxed">
+              <p>
+                鄭琬文 Wallis Cheng 歷經 18 年零售消費品、跨境電商、品牌代理與數位科技產業洗禮。歷任高階品牌主管、電商營運長與數位轉型諮詢顧問。
+              </p>
+              <p>
+                這 18 年間，深刻見證了台灣商業環境從「實體通路的黃金時代」，走向「電商紅利爆發期」，再到今日「隱私權政策緊縮、流量成本高漲與 AI 智慧重構」的新紀元。
+              </p>
+              <p class="font-semibold text-brand-paper/90">
+                正因為親身走過每一道營運節點，我所給出的建議，從不脫離預算限制、供應鏈現實與組織變革的人性挑戰。
+              </p>
+            </div>
+
+            <!-- Core Skill Domain Badges -->
+            <div class="pt-2">
+              <div class="text-xs font-bold text-brand-paper mb-3 uppercase tracking-wider">核心優勢維度</div>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-brand-slate font-medium text-brand-paper/90">品牌心智定位</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-brand-slate font-medium text-brand-paper/90">全通路定價策略</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-brand-slate font-medium text-brand-paper/90">電商毛利結構分析</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-brand-slate font-medium text-brand-paper/90">OMO 虛實整合體驗</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-brand-slate font-medium text-brand-paper/90">會員數據價值（LTV）</span>
+                <span class="text-xs px-3 py-1.5 rounded-lg bg-brand-slate font-medium text-brand-paper/90">AI 流程優化與賦能</span>
+              </div>
+            </div>
+
+            <!-- Direct Quote Card -->
+            <div class="p-6 rounded-2xl bg-brand-cobalt/10 border border-brand-cobalt/25">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 rounded-full bg-brand-cobalt text-brand-ink flex items-center justify-center font-bold text-xs">
+                  W
+                </div>
+                <div class="text-xs font-bold text-brand-paper/90">Wallis Cheng ｜ 顧問信念</div>
+              </div>
+              <p class="text-xs text-brand-paper/90 leading-relaxed font-normal">
+                「商業競爭不是拼誰的口號最響亮，而是看誰能在最合適的定位上，用最精準的成本和通路架構，持續提供顧客無法替代的價值。」
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Strategic Pillars & Deliverable Strengths -->
+          <div class="lg:col-span-7 space-y-6">
+            
+            <div class="border-b border-brand-paper/10 pb-4">
+              <h3 class="text-lg font-bold text-brand-paper">為企業解決的四大實質瓶頸</h3>
+            </div>
+
+            <div class="space-y-4">
+              
+              <!-- Challenge 1 -->
+              <div class="p-5 rounded-2xl border border-brand-paper/10 hover:border-brand-cobalt/60 transition-all bg-brand-slate/50 hover:shadow-sm">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-brand-coral/10 text-brand-cyan flex items-center justify-center shrink-0 text-base font-bold">
+                    01
+                  </div>
+                  <div>
+                    <h4 class="text-base font-bold text-brand-paper mb-1">品牌做很大，但營收與獲利跟不上？</h4>
+                    <p class="text-xs text-brand-paper/80 leading-relaxed">
+                      【解決之道】重新梳理「品牌心智」與「獲利品項」的配比。運用產品階梯（帶路貨、主力貨、形象貨）結合電商通路節奏，防禦品牌被價格促銷掏空。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Challenge 2 -->
+              <div class="p-5 rounded-2xl border border-brand-paper/10 hover:border-brand-cobalt/60 transition-all bg-brand-slate/50 hover:shadow-sm">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-brand-cobalt/10 text-brand-cyan flex items-center justify-center shrink-0 text-base font-bold">
+                    02
+                  </div>
+                  <div>
+                    <h4 class="text-base font-bold text-brand-paper mb-1">實體門市與電商互搶業績、價格混亂？</h4>
+                    <p class="text-xs text-brand-paper/80 leading-relaxed">
+                      【解決之道】打造 OMO 雙贏分工。實體店強化觸感體驗、即時服務與大額客單；電商佈局便利回購、會員訂閱與長尾客製款，並重組利潤分潤公式。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Challenge 3 -->
+              <div class="p-5 rounded-2xl border border-brand-paper/10 hover:border-brand-cobalt/60 transition-all bg-brand-slate/50 hover:shadow-sm">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-brand-cobalt/10 text-brand-cyan flex items-center justify-center shrink-0 text-base font-bold">
+                    03
+                  </div>
+                  <div>
+                    <h4 class="text-base font-bold text-brand-paper mb-1">數位轉型買了系統，員工卻依舊用舊方法做事？</h4>
+                    <p class="text-xs text-brand-paper/80 leading-relaxed">
+                      【解決之道】轉型核心在「人與流程」而非工具。以商業目標逆向推導流程標準，建立簡潔的資料治理規範，降低跨部門摩擦，真正釋放科技價值。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Challenge 4 -->
+              <div class="p-5 rounded-2xl border border-brand-paper/10 hover:border-brand-cobalt/60 transition-all bg-brand-slate/50 hover:shadow-sm">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 rounded-xl bg-brand-cobalt/10 text-brand-cyan flex items-center justify-center shrink-0 text-base font-bold">
+                    04
+                  </div>
+                  <div>
+                    <h4 class="text-base font-bold text-brand-paper mb-1">知道 AI 很強，但不知道如何在日常營運中落地？</h4>
+                    <p class="text-xs text-brand-paper/80 leading-relaxed">
+                      【解決之道】不講虛無縹緲的演算法理論，直接提供經過商業驗證的 AI 協作工作流——從消費者評論洞察分析、行銷腳本構思，到營運指標自動摘要。
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="personal-solutions" aria-labelledby="personal-solutions-heading" class="py-20 md:py-24 relative border-t border-brand-paper/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-12 space-y-3">
+          <div class="text-xs font-bold tracking-widest text-brand-cyan uppercase">Personal Growth Solutions</div>
+          <h2 id="personal-solutions-heading" class="text-3xl sm:text-4xl font-extrabold text-brand-paper tracking-tight leading-tight">
+            個人創業及職涯發展解決方案
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <article class="glass-panel p-8 rounded-3xl shadow-glass hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 group">
+            <div class="w-12 h-12 rounded-2xl bg-brand-cobalt/10 flex items-center justify-center text-brand-cyan text-xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-fingerprint" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-paper mb-4">個人品牌行銷策略</h3>
+            <p class="text-sm text-brand-paper/80 leading-relaxed">
+              協助新個人創業者、跨轉職涯者建立個人品牌以及未來發展策略，挖掘個人特質訂定符合目標。
+            </p>
+          </article>
+
+          <article class="glass-panel p-8 rounded-3xl shadow-glass hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 group">
+            <div class="w-12 h-12 rounded-2xl bg-brand-cobalt/10 flex items-center justify-center text-brand-cyan text-xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-bullhorn" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-paper mb-4">行銷活動策略</h3>
+            <p class="text-sm text-brand-paper/80 leading-relaxed">
+              制定目標後需要推廣、宣傳才能被看見，制定社群、商業管道等宣傳策略。
+            </p>
+          </article>
+
+          <article class="glass-panel p-8 rounded-3xl shadow-glass hover:shadow-glass-hover hover:border-brand-cobalt/60 transition-all duration-300 group">
+            <div class="w-12 h-12 rounded-2xl bg-brand-cobalt/10 flex items-center justify-center text-brand-cyan text-xl mb-6 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-compass" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-bold text-brand-paper mb-4">結合紫微命盤找出註定之路</h3>
+            <p class="text-sm text-brand-paper/80 leading-relaxed">
+              除了實際目標落地執行，也許要有自我內心實現以及自我療癒之路。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading" class="py-20 md:py-24 bg-brand-ink border-t border-brand-paper/10 scroll-mt-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
+          <!-- Social Contact Channels -->
+          <div class="lg:col-span-7">
+            <div class="space-y-3 mb-8">
+              <div class="text-xs font-bold tracking-widest text-brand-cyan uppercase">Contact Me</div>
+              <h2 id="contact-heading" class="text-3xl sm:text-4xl font-extrabold text-brand-paper tracking-tight">聯絡我</h2>
+              <p class="text-base text-brand-paper/80 leading-relaxed max-w-xl">
+                歡迎透過社群與我聯繫，或填寫需求表單，分享你的合作想法與諮詢需求。
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a href="https://line.me/ti/p/yqwFCPA5bA" target="_blank" rel="noopener noreferrer" aria-label="透過 LINE 聯絡我（另開分頁）"
+                 class="group flex items-center gap-4 p-5 rounded-2xl border border-brand-paper/10 bg-brand-slate/50 hover:border-brand-cyan/60 hover:shadow-glass transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink">
+                <span class="w-12 h-12 shrink-0 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-2xl transition-transform motion-safe:group-hover:scale-110">
+                  <i class="fa-brands fa-line" aria-hidden="true"></i>
+                </span>
+                <span class="min-w-0 flex-1">
+                  <span class="block text-sm font-bold text-brand-paper">LINE</span>
+                  <span class="block text-xs text-brand-paper/70 mt-1">私訊聊聊你的需求</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-paper/70 group-hover:text-brand-cyan" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.facebook.com/wallis7" target="_blank" rel="noopener noreferrer" aria-label="前往我的 Facebook（另開分頁）"
+                 class="group flex items-center gap-4 p-5 rounded-2xl border border-brand-paper/10 bg-brand-slate/50 hover:border-brand-cobalt/60 hover:shadow-glass transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink">
+                <span class="w-12 h-12 shrink-0 rounded-xl bg-brand-cobalt/10 text-brand-cyan flex items-center justify-center text-2xl transition-transform motion-safe:group-hover:scale-110">
+                  <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                </span>
+                <span class="min-w-0 flex-1">
+                  <span class="block text-sm font-bold text-brand-paper">Facebook</span>
+                  <span class="block text-xs text-brand-paper/70 mt-1">@wallis7</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-paper/70 group-hover:text-brand-cyan" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.linkedin.com/in/wallischeng7/?skipRedirect=true" target="_blank" rel="noopener noreferrer" aria-label="前往我的 LinkedIn（另開分頁）"
+                 class="group flex items-center gap-4 p-5 rounded-2xl border border-brand-paper/10 bg-brand-slate/50 hover:border-brand-cyan/60 hover:shadow-glass transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink">
+                <span class="w-12 h-12 shrink-0 rounded-xl bg-brand-cyan/10 text-brand-cyan flex items-center justify-center text-2xl transition-transform motion-safe:group-hover:scale-110">
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                </span>
+                <span class="min-w-0 flex-1">
+                  <span class="block text-sm font-bold text-brand-paper">LinkedIn</span>
+                  <span class="block text-xs text-brand-paper/70 mt-1">專業交流與合作</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-paper/70 group-hover:text-brand-cyan" aria-hidden="true"></i>
+              </a>
+
+              <a href="https://www.instagram.com/wallis.cheng/" target="_blank" rel="noopener noreferrer" aria-label="前往我的 Instagram（另開分頁）"
+                 class="group flex items-center gap-4 p-5 rounded-2xl border border-brand-paper/10 bg-brand-slate/50 hover:border-brand-coral/60 hover:shadow-glass transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-brand-ink">
+                <span class="w-12 h-12 shrink-0 rounded-xl bg-gradient-to-tr from-brand-coral/20 via-brand-coral/20 to-brand-cyan/20 text-brand-coral flex items-center justify-center text-2xl transition-transform motion-safe:group-hover:scale-110">
+                  <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </span>
+                <span class="min-w-0 flex-1">
+                  <span class="block text-sm font-bold text-brand-paper">Instagram</span>
+                  <span class="block text-xs text-brand-paper/70 mt-1">@wallis.cheng</span>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-brand-paper/70 group-hover:text-brand-coral" aria-hidden="true"></i>
+              </a>
+
+              <!-- Replace this card with a profile link when the GitHub URL is provided. -->
+              <div class="sm:col-span-2 flex items-center gap-4 p-5 rounded-2xl border border-dashed border-brand-paper/20 bg-brand-slate/50">
+                <span class="w-12 h-12 shrink-0 rounded-xl bg-brand-paper/10 text-brand-paper/80 flex items-center justify-center text-2xl">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </span>
+                <span class="flex-1 text-sm font-bold text-brand-paper/90">GitHub</span>
+                <span class="text-xs font-medium text-brand-paper/80 bg-brand-slate/50 border border-brand-paper/10 px-3 py-1 rounded-full">暫未開放</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Requirements Form -->
+          <div class="lg:col-span-5 glass-panel p-8 sm:p-10 rounded-3xl shadow-glass">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-brand-cobalt via-brand-cobalt to-brand-cyan text-brand-ink flex items-center justify-center text-2xl mb-6 shadow-md shadow-brand-cobalt/20">
+              <i class="fa-solid fa-clipboard-list" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-brand-paper mb-4">填寫需求表單</h3>
+            <p class="text-sm text-brand-paper/80 leading-relaxed mb-6">
+              分享你的目標、目前遇到的挑戰，以及希望獲得的協助，讓我們一起釐清適合的合作方向。
+            </p>
+            <div class="flex flex-wrap gap-2 mb-8 text-xs font-medium text-brand-cyan">
+              <span class="px-3 py-1.5 rounded-lg bg-brand-cobalt/10">企業合作</span>
+              <span class="px-3 py-1.5 rounded-lg bg-brand-cobalt/10">專案需求</span>
+              <span class="px-3 py-1.5 rounded-lg bg-brand-cobalt/10">個人諮詢</span>
+            </div>
+            <a href="https://forms.gle/CDwtzNfY1VLZNsQg7" target="_blank" rel="noopener noreferrer" aria-label="填寫需求表單（Google 表單，另開分頁）"
+               class="group w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl text-sm font-bold transition-shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-cyan focus-visible:ring-offset-2 button-primary focus-visible:ring-offset-brand-ink">
+              <span>填寫需求表單</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform motion-safe:group-hover:translate-x-0.5 motion-safe:group-hover:-translate-y-0.5" aria-hidden="true"></i>
+            </a>
+            <p class="mt-4 text-center text-xs text-brand-paper/70 leading-relaxed">點擊按鈕，將另開 Google 表單填寫需求。</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="consultation" class="py-24 bg-brand-mesh relative overflow-hidden border-t border-brand-paper/10">
+      
+      <!-- Subtle lighting ornament -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-r from-brand-cobalt/20 via-brand-cobalt/20 to-brand-cyan/20 blur-3xl -z-10 rounded-full pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="glass-panel p-8 sm:p-12 lg:p-16 rounded-3xl shadow-glass border border-brand-paper/10 text-center relative overflow-hidden">
+          
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-cobalt/10 border border-brand-cobalt/25 text-xs font-bold text-brand-cyan mb-6">
+            <i class="fa-solid fa-handshake"></i>
+            <span>企業合作 ｜ 策略顧問 ｜ 專案委託</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-paper tracking-tight leading-tight mb-4">
+            開啟您的商業競爭新維度
+          </h2>
+          
+          <p class="text-base sm:text-lg text-brand-paper/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+            無論您是尋求品牌煥新重塑、電商經營瓶頸突破，或期望為團隊導入 AI 智慧工作流，歡迎直接預約一場高質量的初步策略對談。
+          </p>
+
+          <!-- Core Booking Action Module -->
+          <div class="max-w-xl mx-auto space-y-6">
+            
+            <!-- Primary Action Button: Link to Google Calendar -->
+            <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" rel="noopener noreferrer"
+               class="w-full py-4 px-8 rounded-2xl font-bold text-base sm:text-lg hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 group button-primary">
+              <i class="fa-regular fa-calendar-check text-xl"></i>
+              <span>預約策略諮詢時間</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+            </a>
+
+            <!-- Direct Link Callout -->
+            <div class="p-4 rounded-xl bg-brand-slate/50 border border-brand-paper/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-brand-paper/80">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-link text-brand-cyan"></i>
+                <span class="font-medium">專屬預約連結：</span>
+                <span class="font-mono text-brand-paper/90 break-all select-all">calendar.app.google/RpXUmmx3QWHStuy87</span>
+              </div>
+              <button onclick="copyBookingLink()" id="copyBtn" class="px-3 py-1.5 rounded-lg bg-brand-slate/50 border border-brand-paper/20 font-semibold text-brand-paper/90 hover:bg-brand-slate transition-colors shrink-0">
+                複製連結
+              </button>
+            </div>
+
+            <!-- Advisory Scope Filter Pill Options -->
+            <div class="pt-4 text-left">
+              <div class="text-xs font-bold text-brand-paper/90 uppercase tracking-wider mb-3 text-center sm:text-left">
+                您可以針對以下需求進行預約交流：
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-brand-paper/80">
+                <div class="p-3 rounded-xl bg-brand-slate/50 border border-brand-paper/10 flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-brand-cyan mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-brand-paper block">品牌重塑與市場定位規劃</span>
+                    <span class="text-brand-paper/70">確立核心主張與市場差異化定位</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl bg-brand-slate/50 border border-brand-paper/10 flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-brand-cyan mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-brand-paper block">電商全通路與毛利定價突破</span>
+                    <span class="text-brand-paper/70">線上線下分流與利潤體質改善</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl bg-brand-slate/50 border border-brand-paper/10 flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-brand-cyan mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-brand-paper block">數位轉型與會員體系建置</span>
+                    <span class="text-brand-paper/70">打通顧客數據流與留存回購</span>
+                  </div>
+                </div>
+                <div class="p-3 rounded-xl bg-brand-slate/50 border border-brand-paper/10 flex items-start gap-2.5">
+                  <i class="fa-solid fa-circle-check text-brand-cyan mt-0.5"></i>
+                  <div>
+                    <span class="font-bold text-brand-paper block">企業 AI 商業應用與工作流培訓</span>
+                    <span class="text-brand-paper/70">將智慧工具無縫嵌入團隊日常</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Trust guarantee note -->
+          <div class="mt-10 pt-6 border-t border-brand-paper/10 flex flex-wrap items-center justify-center gap-6 text-xs text-brand-paper/70">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand-cyan"></i> 嚴格保密協議</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-clock text-brand-cobalt"></i> 30 分鐘高效率聚焦會議</span>
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-laptop text-brand-cyan"></i> 線上 Google Meet 視訊連線</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-brand-ink text-brand-paper border-t border-brand-paper/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-brand-paper/10">
+        
+        <!-- Left: Branding -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cobalt to-brand-cyan flex items-center justify-center text-brand-ink font-bold text-lg">
+              W
+            </div>
+            <div>
+              <span class="text-base font-bold text-brand-paper tracking-tight">Wallis Cheng 鄭琬文</span>
+              <span class="block text-xs text-brand-paper/70">品牌策略 × 電商策略整合顧問</span>
+            </div>
+          </div>
+          <p class="text-brand-paper/70 text-xs sm:text-sm leading-relaxed max-w-sm">
+            Strategy Meets Intelligence. 以策略定義品牌，以智慧驅動成長。融合 18 年跨域實務，將前瞻洞察轉化為具體獲利動能。
+          </p>
+          <div class="pt-2 text-xs text-brand-paper/70">
+            <span class="inline-block mr-4"><i class="fa-solid fa-location-dot mr-1.5 text-brand-cyan"></i> 台灣 台北 (Taipei, Taiwan)</span>
+            <span><i class="fa-solid fa-globe mr-1.5 text-brand-cobalt"></i> 接受跨國遠端顧問專案</span>
+          </div>
+        </div>
+
+        <!-- Center: Quick Nav -->
+        <div class="md:col-span-3 space-y-3">
+          <div class="text-xs font-bold text-brand-paper/90 tracking-wider uppercase">服務核心</div>
+          <ul class="text-xs text-brand-paper/70 space-y-2">
+            <li><a href="#services" class="hover:text-brand-paper transition-colors">品牌與行銷策略 (Brand Strategy)</a></li>
+            <li><a href="#services" class="hover:text-brand-paper transition-colors">電商與全通路經營 (E-Commerce)</a></li>
+            <li><a href="#services" class="hover:text-brand-paper transition-colors">數位轉型與營運整合 (Digital Ops)</a></li>
+            <li><a href="#services" class="hover:text-brand-paper transition-colors">AI 商業應用賦能 (AI Intelligence)</a></li>
+          </ul>
+        </div>
+
+        <!-- Right: Direct Booking & Fast Access -->
+        <div class="md:col-span-4 space-y-3">
+          <div class="text-xs font-bold text-brand-paper/90 tracking-wider uppercase">諮詢管道</div>
+          <p class="text-xs text-brand-paper/70 leading-relaxed">
+            如欲洽詢演講、企業顧問案或策略工作坊，建議優先使用 Google 日曆預約首輪線上對談。
+          </p>
+          <div class="pt-2">
+            <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank"
+               class="inline-flex items-center px-4 py-2.5 rounded-xl font-semibold text-xs transition-colors button-primary">
+              <i class="fa-regular fa-calendar mr-2"></i> 前往 Google 日曆選取時段
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Disclaimer -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-paper/70 gap-4">
+        <div>
+          &copy; <span id="currentYear"></span> Wallis Cheng. All rights reserved. 策略版權所有.
+        </div>
+        <div class="flex items-center space-x-6">
+          <span class="hover:text-brand-paper/70 transition-colors">Professionalism</span>
+          <span class="hover:text-brand-paper/70 transition-colors">Integrity</span>
+          <span class="hover:text-brand-paper/70 transition-colors">Growth</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Notification Toast Modal for Copy Feedback -->
+  <div id="copyToast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="px-5 py-3 rounded-2xl bg-brand-ink text-brand-paper text-xs font-semibold shadow-2xl flex items-center gap-3 border border-brand-paper/20">
+      <i class="fa-solid fa-circle-check text-brand-cyan text-base"></i>
+      <span>預約連結已成功複製至剪貼簿！</span>
+    </div>
+  </div>
+
+  <script>
+    // Set dynamic current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Header shadow on scroll
+    const mainHeader = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) {
+        mainHeader.classList.add('py-1');
+      } else {
+        mainHeader.classList.remove('py-1');
+      }
+    });
+
+    // Copy Booking Link Handler with iFrame Compatibility
+    function copyBookingLink() {
+      const urlToCopy = "https://calendar.app.google/RpXUmmx3QWHStuy87";
+      const copyBtn = document.getElementById('copyBtn');
+      const toast = document.getElementById('copyToast');
+
+      // Use textarea + execCommand for robust iframe execution
+      const tempInput = document.createElement('textarea');
+      tempInput.value = urlToCopy;
+      tempInput.style.position = 'fixed';
+      tempInput.style.opacity = '0';
+      document.body.appendChild(tempInput);
+      tempInput.focus();
+      tempInput.select();
+
+      try {
+        const successful = document.execCommand('copy');
+        if (successful) {
+          if (copyBtn) copyBtn.textContent = '已複製！';
+          if (toast) {
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+              toast.classList.add('translate-y-20', 'opacity-0');
+              if (copyBtn) copyBtn.textContent = '複製連結';
+            }, 3000);
+          }
+        }
+      } catch (err) {
+        console.error('複製失敗', err);
+      } finally {
+        document.body.removeChild(tempInput);
+      }
+    }
+  </script>
+</body>
+</html>
