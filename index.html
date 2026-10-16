@@ -136,6 +136,146 @@
       box-shadow: 0 12px 32px -10px rgba(244, 63, 94, 0.6);
     }
 
+    .profile-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+
+    .portfolio-shot {
+      position: relative;
+      display: block;
+      isolation: isolate;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      border: 1px solid rgba(248, 250, 252, 0.12);
+      border-radius: 1.5rem;
+      background: var(--brand-slate);
+    }
+
+    .portfolio-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portfolio-shot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent 25%, rgba(11, 15, 25, 0.15) 45%, rgba(11, 15, 25, 0.94) 100%);
+    }
+
+    .portfolio-shot-caption {
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      left: 1.25rem;
+      z-index: 1;
+      color: var(--brand-paper);
+    }
+
+    .portfolio-shot-category {
+      display: block;
+      margin-bottom: 0.375rem;
+      color: var(--brand-cyan);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .portfolio-shot-title {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .portfolio-shot-zoom {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1;
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border: 1px solid rgba(248, 250, 252, 0.2);
+      border-radius: 50%;
+      background: rgba(11, 15, 25, 0.65);
+      color: var(--brand-paper);
+      font-size: 0.75rem;
+    }
+
+    .portfolio-more > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+
+    .portfolio-more > summary::-webkit-details-marker { display: none; }
+    .portfolio-more[open] > summary .fa-chevron-down { transform: rotate(180deg); }
+
+    .portfolio-more > summary:focus-visible {
+      outline: 2px solid var(--brand-cyan);
+      outline-offset: 4px;
+    }
+
+    .portfolio-page-select {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid rgba(248, 250, 252, 0.2);
+      border-radius: 0.75rem;
+      background: var(--brand-slate);
+      color: var(--brand-paper);
+      font: inherit;
+      font-size: 0.875rem;
+    }
+
+    .portfolio-page-select:focus-visible { outline: 2px solid var(--brand-cyan); outline-offset: 3px; }
+    .portfolio-page-image { display: block; width: 100%; height: auto; background: var(--brand-paper); }
+    .portfolio-control:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .portfolio-dialog {
+      width: min(1100px, calc(100vw - 2rem));
+      max-height: calc(100dvh - 2rem);
+      margin: auto;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid rgba(248, 250, 252, 0.2);
+      border-radius: 1.5rem;
+      background: var(--brand-ink);
+      color: var(--brand-paper);
+      box-shadow: 0 30px 100px rgba(11, 15, 25, 0.85);
+    }
+
+    .portfolio-dialog::backdrop { background: rgba(11, 15, 25, 0.9); backdrop-filter: blur(8px); }
+    .portfolio-dialog-image { display: block; max-width: 100%; max-height: 68dvh; width: auto; height: auto; margin: auto; object-fit: contain; }
+
+    @media (min-width: 640px) {
+      .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .portfolio-shot { aspect-ratio: 5 / 3; }
+    }
+
+    @media (min-width: 1024px) {
+      .portfolio-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .portfolio-shot--lead { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+      .portfolio-shot--lead .portfolio-shot-title { font-size: 1.75rem; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .portfolio-shot img { transition: transform 0.6s ease; }
+      .portfolio-shot:hover img, .portfolio-shot:focus-visible img { transform: scale(1.04); }
+    }
+
     /* Floating subtle aura */
     @keyframes pulse-slow {
       0%, 100% { transform: scale(1) translate(0px, 0px); opacity: 0.45; }
@@ -170,11 +310,12 @@
         </a>
 
         <!-- Desktop Navigation Items -->
-        <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-brand-paper/80">
+        <div class="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium text-brand-paper/80">
           <a href="#positioning" class="hover:text-brand-cyan transition-colors">核心定位</a>
           <a href="#services" class="hover:text-brand-cyan transition-colors">策略服務</a>
           <a href="#framework" class="hover:text-brand-cyan transition-colors">商業方法論</a>
-          <a href="#experience" class="hover:text-brand-cyan transition-colors">18年跨域實績</a>
+          <a href="#experience" class="hover:text-brand-cyan transition-colors">關於我</a>
+          <a href="#portfolio" class="hover:text-brand-cyan transition-colors">展覽作品</a>
           <a href="#consultation" class="hover:text-brand-cyan transition-colors">企業諮詢</a>
         </div>
 
@@ -198,7 +339,8 @@
         <a href="#positioning" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">核心定位</a>
         <a href="#services" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">策略服務</a>
         <a href="#framework" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">商業方法論</a>
-        <a href="#experience" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">18年跨域實績</a>
+        <a href="#experience" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">關於我與實務經驗</a>
+        <a href="#portfolio" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">展覽行銷與活動作品</a>
         <a href="#consultation" class="mobile-link block text-sm font-medium text-brand-paper/90 hover:text-brand-cyan py-1">企業諮詢方案</a>
         <div class="pt-2 border-t border-brand-paper/10">
           <a href="https://calendar.app.google/RpXUmmx3QWHStuy87" target="_blank" class="block w-full text-center py-2.5 rounded-xl font-medium text-sm button-primary">
@@ -741,14 +883,18 @@
       </div>
     </section>
 
-    <section id="experience" class="py-24 bg-brand-ink">
+    <section id="experience" aria-label="關於 Wallis Cheng 與實務經驗" class="py-24 bg-brand-ink">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          <!-- Left Column: Biography & Background Summary -->
-          <div class="lg:col-span-5 space-y-6">
-            <div class="text-xs font-bold tracking-widest text-brand-cyan uppercase">Track Record & Authority</div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <figure class="lg:col-span-4 w-full max-w-sm mx-auto lg:mx-0 overflow-hidden rounded-3xl border border-brand-cobalt/25 bg-brand-slate/50 shadow-glass">
+            <img src="作品集/wallis.jpg" alt="鄭琬文 Wallis Cheng 個人形象照" width="1078" height="1459" loading="lazy" decoding="async" class="profile-photo">
+            <figcaption class="p-6 border-t border-brand-paper/10">
+              <p class="text-xl font-bold text-brand-paper">鄭琬文 <span class="font-medium">Wallis Cheng</span></p>
+              <p class="mt-2 text-xs text-brand-cyan tracking-wide">品牌策略 × 電商營運 × 跨域整合</p>
+            </figcaption>
+          </figure>
+          <div class="lg:col-span-8 space-y-6">
+            <div class="text-xs font-bold tracking-widest text-brand-cyan uppercase">About Wallis · Track Record</div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-paper leading-tight">
               18 年磨礪
               <span class="block text-2xl font-bold text-brand-paper/70 mt-1">從第一線實務走向企業策略大局</span>
@@ -791,16 +937,16 @@
                 「商業競爭不是拼誰的口號最響亮，而是看誰能在最合適的定位上，用最精準的成本和通路架構，持續提供顧客無法替代的價值。」
               </p>
             </div>
+          
           </div>
-
-          <!-- Right Column: Strategic Pillars & Deliverable Strengths -->
-          <div class="lg:col-span-7 space-y-6">
+        </div>
+        <div class="mt-16 pt-10 border-t border-brand-paper/10">
             
             <div class="border-b border-brand-paper/10 pb-4">
               <h3 class="text-lg font-bold text-brand-paper">為企業解決的四大實質瓶頸</h3>
             </div>
 
-            <div class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               
               <!-- Challenge 1 -->
               <div class="p-5 rounded-2xl border border-brand-paper/10 hover:border-brand-cobalt/60 transition-all bg-brand-slate/50 hover:shadow-sm">
@@ -864,10 +1010,144 @@
 
             </div>
 
-          </div>
-
+          
         </div>
+      </div>
+    </section>
 
+    <section id="portfolio" aria-labelledby="portfolio-heading" class="py-20 md:py-24 bg-brand-slate/50 border-y border-brand-paper/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div class="max-w-2xl space-y-3">
+            <p class="text-xs font-bold tracking-widest text-brand-cyan uppercase">Selected Work · 2020–2025</p>
+            <h2 id="portfolio-heading" class="text-3xl sm:text-4xl font-extrabold text-brand-paper tracking-tight">展覽行銷與活動實績</h2>
+            <p class="text-sm sm:text-base text-brand-paper/80 leading-relaxed">從展前策畫、品牌推廣到現場執行，讓策略走進真實的品牌接觸點。這些畫面，記錄了我與團隊一起完成的展覽與活動。</p>
+          </div>
+          <a href="#portfolio-casebook" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-cyan hover:text-brand-paper transition-colors shrink-0">閱讀完整專案案例 <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+        </div>
+        <div class="portfolio-grid">
+              <a href="assets/portfolio/coffee-judging.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot portfolio-shot--lead" data-gallery-title="咖啡賽事現場" data-gallery-description="咖啡賽事評鑑與現場執行紀錄" aria-label="放大查看：咖啡賽事現場">
+                <img src="assets/portfolio/coffee-judging.jpg" alt="咖啡賽事評鑑與現場執行紀錄" width="703" height="432" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">展覽 × 專業賽事</span><span class="portfolio-shot-title">咖啡賽事現場</span></span>
+              </a>
+              <a href="assets/portfolio/exhibition-team.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="高雄茶酒咖啡食品展" data-gallery-description="展覽團隊與現場活動紀錄" aria-label="放大查看：高雄茶酒咖啡食品展">
+                <img src="assets/portfolio/exhibition-team.jpg" alt="展覽團隊與現場活動紀錄" width="269" height="258" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">展覽行銷</span><span class="portfolio-shot-title">高雄茶酒咖啡食品展</span></span>
+              </a>
+              <a href="assets/portfolio/wine-opening.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="酒展開幕活動" data-gallery-description="酒展開幕儀式與品牌合作現場" aria-label="放大查看：酒展開幕活動">
+                <img src="assets/portfolio/wine-opening.jpg" alt="酒展開幕儀式與品牌合作現場" width="458" height="300" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">品牌 × 活動現場</span><span class="portfolio-shot-title">酒展開幕活動</span></span>
+              </a>
+              <a href="assets/portfolio/tea-experience.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="茶文化體驗" data-gallery-description="茶文化展示與現場品茗互動" aria-label="放大查看：茶文化體驗">
+                <img src="assets/portfolio/tea-experience.jpg" alt="茶文化展示與現場品茗互動" width="261" height="259" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">品牌體驗</span><span class="portfolio-shot-title">茶文化體驗</span></span>
+              </a>
+              <a href="assets/portfolio/anniversary-booth.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="週年慶快閃活動" data-gallery-description="Outdoor Spirit Shop 週年活動展區" aria-label="放大查看：週年慶快閃活動">
+                <img src="assets/portfolio/anniversary-booth.jpg" alt="Outdoor Spirit Shop 週年活動展區" width="327" height="251" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">會員 × 實體活動</span><span class="portfolio-shot-title">週年慶快閃活動</span></span>
+              </a>
+              <a href="assets/portfolio/pet-expo-livestream.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="展覽直播企畫" data-gallery-description="寵物展活動介紹與直播現場" aria-label="放大查看：展覽直播企畫">
+                <img src="assets/portfolio/pet-expo-livestream.jpg" alt="寵物展活動介紹與直播現場" width="409" height="218" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">線上 × 線下串連</span><span class="portfolio-shot-title">展覽直播企畫</span></span>
+              </a>
+        </div>
+        <p class="mt-4 text-xs text-brand-paper/70 flex items-center gap-2"><i class="fa-solid fa-magnifying-glass-plus text-brand-cyan" aria-hidden="true"></i>點選照片可放大，並切換瀏覽活動影像。</p>
+        <details class="portfolio-more mt-8">
+          <summary class="flex items-center justify-between gap-4 p-5 rounded-2xl border border-brand-paper/20 bg-brand-ink text-brand-paper hover:border-brand-cyan/60 transition-colors"><span class="text-sm font-semibold">更多活動現場 <span class="ml-2 text-xs font-normal text-brand-paper/70">另有 9 張照片</span></span><i class="fa-solid fa-chevron-down text-brand-cyan transition-transform" aria-hidden="true"></i></summary>
+          <div class="portfolio-grid mt-5">
+              <a href="assets/portfolio/exhibition-mascot.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="展覽主題互動" data-gallery-description="高雄茶酒咖啡食品展主題與吉祥物互動" aria-label="放大查看：展覽主題互動">
+                <img src="assets/portfolio/exhibition-mascot.jpg" alt="高雄茶酒咖啡食品展主題與吉祥物互動" width="390" height="282" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">展覽行銷</span><span class="portfolio-shot-title">展覽主題互動</span></span>
+              </a>
+              <a href="assets/portfolio/exhibition-display.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="展區與商品陳列" data-gallery-description="展區規畫與商品展示現場" aria-label="放大查看：展區與商品陳列">
+                <img src="assets/portfolio/exhibition-display.jpg" alt="展區規畫與商品展示現場" width="493" height="316" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">現場展示</span><span class="portfolio-shot-title">展區與商品陳列</span></span>
+              </a>
+              <a href="assets/portfolio/coffee-experience.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="咖啡展互動體驗" data-gallery-description="咖啡展參觀者與品牌的現場交流" aria-label="放大查看：咖啡展互動體驗">
+                <img src="assets/portfolio/coffee-experience.jpg" alt="咖啡展參觀者與品牌的現場交流" width="470" height="349" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">品牌體驗</span><span class="portfolio-shot-title">咖啡展互動體驗</span></span>
+              </a>
+              <a href="assets/portfolio/tea-booth.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="茶展品牌展區" data-gallery-description="茶展品牌展示與參觀者互動紀錄" aria-label="放大查看：茶展品牌展區">
+                <img src="assets/portfolio/tea-booth.jpg" alt="茶展品牌展示與參觀者互動紀錄" width="472" height="346" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">展覽行銷</span><span class="portfolio-shot-title">茶展品牌展區</span></span>
+              </a>
+              <a href="assets/portfolio/exhibition-crowd.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="展場人潮紀錄" data-gallery-description="展覽活動現場與參觀動線紀錄" aria-label="放大查看：展場人潮紀錄">
+                <img src="assets/portfolio/exhibition-crowd.jpg" alt="展覽活動現場與參觀動線紀錄" width="456" height="234" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">活動現場</span><span class="portfolio-shot-title">展場人潮紀錄</span></span>
+              </a>
+              <a href="assets/portfolio/anniversary-interaction.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="週年慶現場交流" data-gallery-description="Outdoor Spirit Shop 週年慶參觀互動" aria-label="放大查看：週年慶現場交流">
+                <img src="assets/portfolio/anniversary-interaction.jpg" alt="Outdoor Spirit Shop 週年慶參觀互動" width="391" height="226" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">會員活動</span><span class="portfolio-shot-title">週年慶現場交流</span></span>
+              </a>
+              <a href="assets/portfolio/coffee-livestream.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="咖啡主題直播" data-gallery-description="咖啡主題活動宣傳與直播內容" aria-label="放大查看：咖啡主題直播">
+                <img src="assets/portfolio/coffee-livestream.jpg" alt="咖啡主題活動宣傳與直播內容" width="389" height="249" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">直播行銷</span><span class="portfolio-shot-title">咖啡主題直播</span></span>
+              </a>
+              <a href="assets/portfolio/anniversary-livestream.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="品牌週年直播" data-gallery-description="展昭週年慶直播與團隊活動紀錄" aria-label="放大查看：品牌週年直播">
+                <img src="assets/portfolio/anniversary-livestream.jpg" alt="展昭週年慶直播與團隊活動紀錄" width="458" height="255" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">品牌活動</span><span class="portfolio-shot-title">品牌週年直播</span></span>
+              </a>
+              <a href="assets/portfolio/pet-products-live.jpg" target="_blank" rel="noopener noreferrer" class="portfolio-shot" data-gallery-title="寵物展活動介紹" data-gallery-description="寵物展商品與展覽活動的直播介紹" aria-label="放大查看：寵物展活動介紹">
+                <img src="assets/portfolio/pet-products-live.jpg" alt="寵物展商品與展覽活動的直播介紹" width="450" height="226" loading="lazy" decoding="async">
+                <span class="portfolio-shot-zoom" aria-hidden="true"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+                <span class="portfolio-shot-caption"><span class="portfolio-shot-category">直播行銷</span><span class="portfolio-shot-title">寵物展活動介紹</span></span>
+              </a>
+          </div>
+        </details>
+        <div id="portfolio-casebook" class="mt-16 pt-12 border-t border-brand-paper/10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start scroll-mt-28">
+          <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <div>
+              <p class="text-xs font-bold tracking-widest text-brand-cyan uppercase mb-3">Inside the Projects</p>
+              <h3 class="text-2xl sm:text-3xl font-bold text-brand-paper mb-4">看見現場，也看見背後的策畫。</h3>
+              <p class="text-sm text-brand-paper/80 leading-relaxed">完整作品集收錄會員經營、直播與團購、展覽活動及數位服務專案。你可以直接翻閱案例頁面，或開啟 PDF 深入閱讀。</p>
+            </div>
+            <div class="flex flex-wrap gap-2 text-xs font-medium text-brand-cyan"><span class="px-3 py-1.5 rounded-lg bg-brand-cobalt/10 border border-brand-cobalt/25">展覽與活動</span><span class="px-3 py-1.5 rounded-lg bg-brand-cobalt/10 border border-brand-cobalt/25">會員經營</span><span class="px-3 py-1.5 rounded-lg bg-brand-cobalt/10 border border-brand-cobalt/25">數位服務</span></div>
+            <div id="portfolioPdfControls" class="hidden space-y-4">
+              <label for="portfolioPageSelect" class="block text-xs font-semibold text-brand-paper/90">選擇作品頁面</label>
+              <select id="portfolioPageSelect" class="portfolio-page-select">
+                <option value="0">01 — 2020–2025 專案活動總覽</option>
+                <option value="1">02 — 會員經營與企業參觀服務</option>
+                <option value="2">03 — 會員電子報與活動溝通</option>
+                <option value="3">04 — 直播活動與線上團購</option>
+                <option value="4" selected>05 — 2023 展覽行銷策畫與執行</option>
+                <option value="5">06 — 展覽 APP 與數位轉型專案</option>
+                <option value="6">07 — APP 推廣與品牌活動</option>
+                <option value="7">08 — 作品集結語</option>
+              </select>
+              <div class="flex items-center justify-between gap-3">
+                <button type="button" id="portfolioPdfPrev" class="portfolio-control inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-brand-paper/20 text-xs text-brand-paper hover:border-brand-cyan/60 transition-colors"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>前一頁</button>
+                <span id="portfolioPageCounter" role="status" aria-live="polite" class="text-xs font-mono text-brand-cyan">第 5 頁，共 8 頁</span>
+                <button type="button" id="portfolioPdfNext" class="portfolio-control inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-brand-paper/20 text-xs text-brand-paper hover:border-brand-cyan/60 transition-colors">下一頁<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <div class="p-5 rounded-2xl bg-brand-ink border border-brand-paper/10"><p id="portfolioPageTitle" class="text-sm font-bold text-brand-paper">2023 展覽行銷策畫與執行</p><p id="portfolioPageDescription" class="mt-2 text-xs text-brand-paper/70 leading-relaxed">展前宣傳、資源整合、活動現場與咖啡賽事紀錄。</p></div>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a id="portfolioPdfOpen" href="作品集/2025.作品集%20(1).pdf#page=5" target="_blank" rel="noopener noreferrer" class="button-primary inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition-all"><i class="fa-regular fa-file-pdf" aria-hidden="true"></i>完整閱讀 PDF<i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i></a>
+              <a href="作品集/2025.作品集%20(1).pdf" download="Wallis-Cheng-Portfolio-2025.pdf" class="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 border border-brand-paper/20 text-sm font-semibold text-brand-paper hover:border-brand-cyan/60 transition-colors"><i class="fa-solid fa-download text-brand-cyan" aria-hidden="true"></i>下載作品集</a>
+            </div>
+            <p class="text-xs text-brand-paper/70">PDF · 8 頁 · 8.3 MB</p>
+          </div>
+          <figure class="lg:col-span-7 rounded-3xl border border-brand-paper/20 overflow-hidden bg-brand-ink shadow-glass">
+            <figcaption class="flex items-center justify-between gap-3 px-5 py-4 border-b border-brand-paper/10"><span class="text-xs font-semibold text-brand-paper">專案作品集預覽</span><span class="text-xs text-brand-paper/70">點選頁面，閱讀原始 PDF <i class="fa-solid fa-arrow-up-right-from-square ml-1" aria-hidden="true"></i></span></figcaption>
+            <a id="portfolioPdfPageLink" href="作品集/2025.作品集%20(1).pdf#page=5" target="_blank" rel="noopener noreferrer" aria-label="開啟作品集 PDF 第 5 頁：2023 展覽行銷策畫與執行">
+              <img id="portfolioPageImage" class="portfolio-page-image" src="assets/portfolio/pdf-page-05.jpg" width="1440" height="2037" loading="lazy" decoding="async" alt="作品集第 5 頁：2023 展覽行銷策畫與執行">
+            </a>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -1180,6 +1460,21 @@
     </div>
   </footer>
 
+  <dialog id="portfolioDialog" class="portfolio-dialog" aria-labelledby="portfolioDialogTitle" aria-describedby="portfolioDialogDescription">
+    <div class="p-4 sm:p-6">
+      <div class="flex items-start justify-between gap-4 mb-5">
+        <div><p class="text-[11px] text-brand-cyan font-semibold tracking-wider uppercase mb-1">On Site · In Focus</p><h2 id="portfolioDialogTitle" class="text-lg font-bold text-brand-paper">活動影像</h2></div>
+        <button type="button" id="portfolioDialogClose" aria-label="關閉照片預覽" class="shrink-0 grid place-items-center w-10 h-10 rounded-full border border-brand-paper/20 text-brand-paper hover:bg-brand-slate transition-colors"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <figure class="rounded-xl overflow-hidden bg-brand-slate/50 p-2"><img id="portfolioDialogImage" class="portfolio-dialog-image" alt="" decoding="async"><figcaption id="portfolioDialogDescription" class="p-3 text-center text-xs text-brand-paper/80 leading-relaxed"></figcaption></figure>
+      <div class="mt-5 flex items-center justify-between gap-4">
+        <button type="button" id="portfolioPhotoPrev" class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 border border-brand-paper/20 text-xs hover:border-brand-cyan/60 transition-colors"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>上一張</button>
+        <span id="portfolioPhotoCounter" role="status" aria-live="polite" class="text-xs font-mono text-brand-cyan"></span>
+        <button type="button" id="portfolioPhotoNext" class="inline-flex items-center gap-2 rounded-xl px-4 py-2.5 border border-brand-paper/20 text-xs hover:border-brand-cyan/60 transition-colors">下一張<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </dialog>
+
   <!-- Notification Toast Modal for Copy Feedback -->
   <div id="copyToast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
     <div class="px-5 py-3 rounded-2xl bg-brand-ink text-brand-paper text-xs font-semibold shadow-2xl flex items-center gap-3 border border-brand-paper/20">
@@ -1253,5 +1548,85 @@
       }
     }
   </script>
+  <script>
+(function initPortfolio(pages,pdfUrl) {
+  // Native dialog keeps image links usable as a fallback.
+  (() => {
+    const photoLinks=Array.from(document.querySelectorAll('[data-gallery-title]'));
+    const dialog=document.getElementById('portfolioDialog');
+    if(!dialog || typeof dialog.showModal!=='function' || photoLinks.length===0)return;
+    const image=document.getElementById('portfolioDialogImage');
+    const title=document.getElementById('portfolioDialogTitle');
+    const description=document.getElementById('portfolioDialogDescription');
+    const counter=document.getElementById('portfolioPhotoCounter');
+    const close=document.getElementById('portfolioDialogClose');
+    let activePhoto=0,returnFocus=null,previousOverflow='';
+    const showPhoto=index=>{
+      activePhoto=(index+photoLinks.length)%photoLinks.length;
+      const photo=photoLinks[activePhoto];
+      image.src=photo.getAttribute('href');
+      image.alt=photo.dataset.galleryDescription;
+      title.textContent=photo.dataset.galleryTitle;
+      description.textContent=photo.dataset.galleryDescription;
+      counter.textContent=(activePhoto+1)+' / '+photoLinks.length;
+    };
+    photoLinks.forEach((link,index)=>link.addEventListener('click',event=>{
+      if(event.button!==0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)return;
+      event.preventDefault();
+      returnFocus=link;
+      previousOverflow=document.body.style.overflow;
+      showPhoto(index);
+      dialog.showModal();
+      document.body.style.overflow='hidden';
+      close.focus();
+    }));
+    close.addEventListener('click',()=>dialog.close());
+    dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+    dialog.addEventListener('close',()=>{
+      document.body.style.overflow=previousOverflow;
+      if(returnFocus)returnFocus.focus({preventScroll:true});
+    });
+    document.getElementById('portfolioPhotoPrev').addEventListener('click',()=>showPhoto(activePhoto-1));
+    document.getElementById('portfolioPhotoNext').addEventListener('click',()=>showPhoto(activePhoto+1));
+    dialog.addEventListener('keydown',event=>{
+      if(event.key==='ArrowLeft' || event.key==='ArrowRight'){
+        event.preventDefault();
+        showPhoto(activePhoto+(event.key==='ArrowRight'?1:-1));
+      }
+    });
+  })();
+  // Only the selected page image loads; the original PDF opens on demand.
+  (() => {
+    const select=document.getElementById('portfolioPageSelect');
+    const image=document.getElementById('portfolioPageImage');
+    if(!select || !image)return;
+    const previous=document.getElementById('portfolioPdfPrev');
+    const next=document.getElementById('portfolioPdfNext');
+    let activePage=4;
+    const showPage=index=>{
+      if(!Number.isInteger(index) || index<0 || index>=pages.length)return;
+      activePage=index;
+      const pageNumber=index+1,page=pages[index],pageUrl=pdfUrl+'#page='+pageNumber;
+      image.src='assets/portfolio/pdf-page-'+String(pageNumber).padStart(2,'0')+'.jpg';
+      image.alt='作品集第 '+pageNumber+' 頁：'+page.title;
+      select.value=String(index);
+      document.getElementById('portfolioPageTitle').textContent=page.title;
+      document.getElementById('portfolioPageDescription').textContent=page.description;
+      document.getElementById('portfolioPageCounter').textContent='第 '+pageNumber+' 頁，共 '+pages.length+' 頁';
+      document.getElementById('portfolioPdfOpen').href=pageUrl;
+      const pageLink=document.getElementById('portfolioPdfPageLink');
+      pageLink.href=pageUrl;
+      pageLink.setAttribute('aria-label','開啟作品集 PDF 第 '+pageNumber+' 頁：'+page.title);
+      previous.disabled=index===0;
+      next.disabled=index===pages.length-1;
+    };
+    previous.addEventListener('click',()=>showPage(activePage-1));
+    next.addEventListener('click',()=>showPage(activePage+1));
+    select.addEventListener('change',()=>showPage(Number(select.value)));
+    showPage(activePage);
+    document.getElementById('portfolioPdfControls').classList.remove('hidden');
+  })();
+})([{"title":"2020–2025 專案活動總覽","description":"作品集封面與專案期間。"},{"title":"會員經營與企業參觀服務","description":"年度會員活動、服務流程與品牌週年活動紀錄。"},{"title":"會員電子報與活動溝通","description":"會員電子報、展覽活動資訊與線上溝通內容。"},{"title":"直播活動與線上團購","description":"品牌直播、活動宣傳與線上團購企畫紀錄。"},{"title":"2023 展覽行銷策畫與執行","description":"展前宣傳、資源整合、活動現場與咖啡賽事紀錄。"},{"title":"展覽 APP 與數位轉型專案","description":"展覽 APP 的產品、內容、客服機器人與營運規畫。"},{"title":"APP 推廣與品牌活動","description":"APP 行銷素材，以及週年慶與實體活動的串連。"},{"title":"作品集結語","description":"感謝閱讀，歡迎交流你的合作想法與諮詢需求。"}],"作品集/2025.作品集%20(1).pdf");
+</script>
 </body>
 </html>
